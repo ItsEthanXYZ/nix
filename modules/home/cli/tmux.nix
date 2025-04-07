@@ -1,15 +1,19 @@
 {
-  pkgs,
   config,
   lib,
+  pkgs,
   ...
-}: {
-  options = {
-    custom.shell.tmux.enable = lib.mkEnableOption "Enable tmux along with it's corresponding configuration";
-    custom.shell.tmux.autostart = lib.mkEnableOption "Automatically connect to a new tmux session when starting a new shell";
+}:
+with lib; {
+  options.custom.cli.tmux = {
+    enable = mkOption {
+      default = true;
+      description = "Enables tmux along with it's corresponding configuration";
+      type = types.bool;
+    };
   };
 
-  config = lib.mkIf config.custom.shell.tmux.enable {
+  config = mkIf config.custom.cli.tmux.enable {
     programs = {
       tmux = {
         enable = true;
@@ -91,18 +95,6 @@
           bind -T copy-mode-vi y send -X copy-selection-and-cancel
         '';
       };
-    };
-
-    programs.zsh.initExtraFirst = lib.mkIf config.custom.shell.tmux.autostart (
-      lib.mkAfter ''
-        if [ -z "$TMUX" ]; then
-          tmux attach -t default || tmux new -s default
-        fi
-      ''
-    );
-
-    programs.nixvim.plugins = lib.mkIf config.custom.shell.nixvim.enable {
-      tmux-navigator.enable = true;
     };
 
     home.packages = [

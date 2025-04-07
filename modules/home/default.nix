@@ -5,6 +5,7 @@
 }: {
   imports = [
     ./catppuccin
+    ./cli
     ./desktop
     ./gaming
     ./shell

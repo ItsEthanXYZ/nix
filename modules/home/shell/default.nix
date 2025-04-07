@@ -6,14 +6,8 @@
   ...
 }: {
   imports = [
-    ./bat.nix
-    ./eza.nix
-    ./fzf.nix
-    ./git.nix
     ./nixvim
     ./oh-my-posh
-    ./tmux.nix
-    ./zoxide.nix
     ./zsh.nix
   ];
 
@@ -23,15 +17,8 @@
 
   config = lib.mkIf config.custom.shell.enable {
     custom.shell = {
-      bat.enable = lib.mkDefault true;
-      eza.enable = lib.mkDefault true;
-      fzf.enable = lib.mkDefault true;
-      git.enable = lib.mkDefault true;
       nixvim.enable = lib.mkDefault true;
       oh-my-posh.enable = lib.mkDefault true;
-      tmux.enable = lib.mkDefault true;
-      zettel.enable = lib.mkDefault true;
-      zoxide.enable = lib.mkDefault true;
       zsh.enable = lib.mkDefault true;
     };
 
