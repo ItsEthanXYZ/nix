@@ -3,11 +3,14 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    nix-darwin.url = "github:LnL7/nix-darwin";
-    nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
-    home-manager.url = "github:nix-community/home-manager";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    nixpkgs-firefox-darwin.url = "github:bandithedoge/nixpkgs-firefox-darwin";
+    nix-darwin = {
+      url = "github:LnL7/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -16,7 +19,6 @@
     nix-gaming.url = "github:fufexan/nix-gaming";
     raise.url = "github:knarkzel/raise";
     sourceweaver.url = "github:EthanJ-Brady/SourceWeaver";
-    zen-browser.url = "github:EthanJ-Brady/zen-browser-flake";
   };
 
   outputs = {
@@ -105,7 +107,6 @@
         ./modules/darwin
         home-manager.darwinModules.home-manager
         {
-          nixpkgs.overlays = [inputs.nixpkgs-firefox-darwin.overlay];
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.extraSpecialArgs = {
