@@ -13,7 +13,6 @@
     ./nixvim
     ./oh-my-posh
     ./tmux.nix
-    ./zettel
     ./zoxide.nix
     ./zsh.nix
   ];
