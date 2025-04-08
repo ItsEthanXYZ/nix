@@ -19,6 +19,10 @@ with lib; {
   };
 
   config = mkIf config.custom.cli.enable {
+    home.packages = [
+      inputs.sourceweaver.packages.${pkgs.system}.default
+    ];
+
     programs = {
       bat.enable = true;
       eza = {
