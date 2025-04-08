@@ -177,6 +177,18 @@
           silent = true;
         };
       }
+      {
+        action = "<CMD>Oil<CR>";
+        options.desc = "Open parent directory";
+        key = "-";
+        mode = "n";
+      }
+      {
+        action = "<CMD>lua require('oil').toggle_float()<CR>";
+        options.desc = "Open oil in a floating window";
+        key = "<leader>-";
+        mode = "n";
+      }
     ];
   };
 }
