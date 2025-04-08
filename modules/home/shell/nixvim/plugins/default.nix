@@ -5,15 +5,6 @@
   ...
 }: {
   config = lib.mkIf config.custom.shell.nixvim.enable {
-    home.packages = with pkgs; [
-      black
-      google-java-format
-      nixfmt-rfc-style
-      prettierd
-      rustfmt
-      alejandra
-    ];
-
     programs.nixvim = {
       plugins = {
         avante = import ./avante.nix;
