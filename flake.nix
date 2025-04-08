@@ -30,7 +30,6 @@
     systems = ["x86_64-linux" "aarch64-darwin"];
     forAllSystems = f: nixpkgs.lib.genAttrs systems (system: f system);
   in {
-    # Zephyr Laptop
     nixosConfigurations = {
       "bernoulli" = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
@@ -56,7 +55,6 @@
         ];
       };
 
-      # Digital Ocean Server
       "morse" = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
         modules = [
@@ -80,7 +78,6 @@
         ];
       };
 
-      # Minecraft Server
       "mohs" = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
         modules = [
@@ -105,7 +102,6 @@
       };
     };
 
-    # Macbook Air
     darwinConfigurations."newton" = nix-darwin.lib.darwinSystem {
       modules = [
         ./hosts/newton/configuration.nix
