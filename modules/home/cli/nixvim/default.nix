@@ -4,16 +4,23 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+with lib; {
   imports = [
     inputs.nixvim.homeManagerModules.nixvim
   ];
 
   options = {
-    custom.shell.nixvim.enable = lib.mkEnableOption "Enables the neovim distribution nixvim";
+    custom.cli.nixvim = {
+      enable = mkOption {
+        default = true;
+        description = "Enables the neovim distribution nixvim";
+        type = types.bool;
+      };
+    };
   };
 
-  config = lib.mkIf config.custom.shell.nixvim.enable {
+  config = mkIf config.custom.cli.nixvim.enable {
     nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
     programs.nixvim = {
       enable = true;

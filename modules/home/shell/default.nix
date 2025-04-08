@@ -6,7 +6,6 @@
   ...
 }: {
   imports = [
-    ./nixvim
     ./oh-my-posh
     ./zsh.nix
   ];
@@ -17,7 +16,6 @@
 
   config = lib.mkIf config.custom.shell.enable {
     custom.shell = {
-      nixvim.enable = lib.mkDefault true;
       oh-my-posh.enable = lib.mkDefault true;
       zsh.enable = lib.mkDefault true;
     };

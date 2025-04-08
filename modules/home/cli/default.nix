@@ -6,6 +6,7 @@
 with lib; {
   imports = [
     ./git.nix
+    ./nixvim
     ./tmux.nix
   ];
 
