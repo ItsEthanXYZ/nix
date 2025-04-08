@@ -123,6 +123,17 @@
       ];
     };
 
+    homeConfigurations = {
+      newton = home-manager.lib.homeManagerConfiguration {
+        pkgs = import nixpkgs {system = "aarch64-darwin";};
+        extraSpecialArgs = {inherit inputs;};
+        modules = [
+          ./hosts/newton/home.nix
+          ./modules/home
+        ];
+      };
+    };
+
     devShells = forAllSystems (
       system: let
         pkgs = import nixpkgs {inherit system;};

@@ -17,6 +17,7 @@
   # changes in each release.
   home.stateVersion = "24.05";
 
+  home.username = "ethanbrady";
   home.homeDirectory = "/Users/ethanbrady";
 
   # Let Home Manager install and manage itself.
