@@ -3,7 +3,7 @@
   lib,
   ...
 }: {
-  config = lib.mkIf (config.catppuccin.enable && config.programs.nixvim.enable) {
+  config = lib.mkIf (config.catppuccin.enable) {
     programs.nixvim = {
       colorscheme = "catppuccin";
       colorschemes.catppuccin = {
