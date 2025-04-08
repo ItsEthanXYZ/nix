@@ -1,9 +1,13 @@
 {
   config,
+  inputs,
   lib,
+  pkgs,
   ...
 }:
-with lib; {
+with lib; let
+  cfgZsh = config.programs.zsh.enable;
+in {
   imports = [
     ./git.nix
     ./nixvim
@@ -27,13 +31,13 @@ with lib; {
       bat.enable = true;
       eza = {
         enable = true;
-        enableZshIntegration = lib.mkIf config.programs.zsh.enable true;
+        enableZshIntegration = mkIf cfgZsh true;
         git = true;
         icons = "auto";
       };
       fzf = {
         enable = true;
-        enableZshIntegration = lib.mkIf config.programs.zsh.enable true;
+        enableZshIntegration = mkIf cfgZsh true;
         fileWidgetOptions = [
           "-i"
           "-e"
@@ -45,9 +49,9 @@ with lib; {
       };
       zoxide = {
         enable = true;
-        enableZshIntegration = lib.mkIf config.programs.zsh.enable true;
+        enableZshIntegration = mkIf cfgZsh true;
       };
-      zsh = lib.mkIf config.programs.zsh.enable {
+      zsh = mkIf cfgZsh {
         shellAliases = {
           cat = "bat";
           cd = "z";
