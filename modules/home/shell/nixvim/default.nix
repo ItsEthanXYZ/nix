@@ -24,6 +24,13 @@
       opts = import ./opts.nix;
       autoCmd = import ./autocmds.nix;
       keymaps = import ./keymaps.nix;
+      plugins = import ./plugins;
+      extraPlugins = [
+        {
+          plugin = pkgs.vimPlugins.supermaven-nvim;
+          config = "lua require(\"supermaven-nvim\").setup({disable_keymaps = true,disable_inline_completion = true,});";
+        }
+      ];
     };
 
     home.packages = with pkgs; [
