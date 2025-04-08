@@ -3,18 +3,25 @@
   config,
   lib,
   ...
-}: let
+}:
+with lib; let
   isDarwin = pkgs.stdenv.isDarwin;
   ghostty-mock = pkgs.writeShellScriptBin "ghostty-mock" "";
 in {
-  options = {
-    custom.apps.ghostty.enable = lib.mkEnableOption "Enables the terminal emulator ghostty and the configuration";
+  options.custom.apps.ghostty = {
+    enable = mkOption {
+      default = false;
+      description = "Enables the terminal emulator ghostty and the configuration";
+      type = types.bool;
+    };
   };
 
   config = lib.mkIf config.custom.apps.ghostty.enable {
     programs.ghostty = {
       enable = true;
       package = lib.mkIf isDarwin ghostty-mock;
+      enableZshIntegration = mkIf config.programs.zsh.enable true;
+      installBatSyntax = mkIf config.programs.bat.enable true;
       settings = {
         clipboard-read = "allow";
         clipboard-write = "allow";
