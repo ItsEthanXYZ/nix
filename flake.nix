@@ -26,7 +26,10 @@
     nix-darwin,
     home-manager,
     ...
-  } @ inputs: {
+  } @ inputs: let
+    systems = ["x86_64-linux" "aarch64-darwin"];
+    forAllSystems = f: nixpkgs.lib.genAttrs systems (system: f system);
+  in {
     # Zephyr Laptop
     nixosConfigurations."bernoulli" = nixpkgs.lib.nixosSystem {
       specialArgs = {inherit inputs;};
@@ -121,5 +124,13 @@
         }
       ];
     };
+
+    devShells = forAllSystems (
+      system: let
+        pkgs = import nixpkgs {inherit system;};
+      in {
+        python = import ./shells/python.nix {inherit pkgs;};
+      }
+    );
   };
 }
