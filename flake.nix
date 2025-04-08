@@ -2,21 +2,21 @@
   description = "My NixOS configuration flake";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    nix-darwin = {
-      url = "github:LnL7/nix-darwin";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-darwin = {
+      url = "github:LnL7/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nix-gaming.url = "github:fufexan/nix-gaming";
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    nix-gaming.url = "github:fufexan/nix-gaming";
     raise.url = "github:knarkzel/raise";
     sourceweaver.url = "github:EthanJ-Brady/SourceWeaver";
   };
