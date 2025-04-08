@@ -19,7 +19,6 @@
   };
 
   config = lib.mkIf config.custom.enable {
-    custom.ssh.enable = lib.mkDefault true;
     custom.syncthing.enable = lib.mkDefault true;
   };
 }
