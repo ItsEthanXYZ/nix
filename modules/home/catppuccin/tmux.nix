@@ -4,7 +4,7 @@
   lib,
   ...
 }: {
-  config = lib.mkIf (config.catppuccin.enable && config.custom.shell.tmux.enable) {
+  config = lib.mkIf (config.catppuccin.enable && config.programs.tmux.enable) {
     programs.tmux.plugins = [
       {
         plugin = pkgs.tmuxPlugins.catppuccin.overrideAttrs (oldAttrs: {

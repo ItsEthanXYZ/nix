@@ -4,6 +4,11 @@
   ...
 }:
 with lib; {
+  imports = [
+    ./git.nix
+    ./tmux.nix
+  ];
+
   options.custom.cli = {
     enable = mkOption {
       default = true;
