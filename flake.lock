@@ -401,11 +401,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1743550719,
-        "narHash": "sha256-5MIoZoVEG0FuHiJ2bNO+ImiYoBei0jFGBfwOlX6kRSM=",
+        "lastModified": 1744125021,
+        "narHash": "sha256-xME5zhNWeGOEgehaPnb+cERzwWzAGIqW5/3vJ/yMdJs=",
         "owner": "EthanJ-Brady",
         "repo": "SourceWeaver",
-        "rev": "34c2533311d92fdfa9a24da2d06449011b3e03d2",
+        "rev": "be775f06aa168345db46de61145515805d41646c",
         "type": "github"
       },
       "original": {

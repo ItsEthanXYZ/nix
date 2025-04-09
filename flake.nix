@@ -138,6 +138,7 @@
       system: let
         pkgs = import nixpkgs {inherit system;};
       in {
+        js = import ./shells/js.nix {inherit pkgs;};
         python = import ./shells/python.nix {inherit pkgs;};
       }
     );
