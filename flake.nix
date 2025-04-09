@@ -2,21 +2,23 @@
   description = "My NixOS configuration flake";
 
   inputs = {
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nix-darwin = {
+      url = "github:LnL7/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nix-gaming.url = "github:fufexan/nix-gaming";
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    nix-darwin.url = "github:LnL7/nix-darwin";
-    nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
-    home-manager.url = "github:nix-community/home-manager";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    nixpkgs-firefox-darwin.url = "github:bandithedoge/nixpkgs-firefox-darwin";
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    nix-gaming.url = "github:fufexan/nix-gaming";
     raise.url = "github:knarkzel/raise";
     sourceweaver.url = "github:EthanJ-Brady/SourceWeaver";
-    zen-browser.url = "github:EthanJ-Brady/zen-browser-flake";
   };
 
   outputs = {
@@ -24,88 +26,88 @@
     nix-darwin,
     home-manager,
     ...
-  } @ inputs: {
-    # Zephyr Laptop
-    nixosConfigurations."bernoulli" = nixpkgs.lib.nixosSystem {
-      specialArgs = {inherit inputs;};
-      modules = [
-        ./hosts/bernoulli/configuration.nix
-        ./hosts/bernoulli/hardware-configuration.nix
-        ./modules/nixos
-        inputs.nixos-hardware.nixosModules.asus-zephyrus-ga502
-        home-manager.nixosModules.home-manager
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.extraSpecialArgs = {
-            inherit inputs;
-          };
-          home-manager.users.ethan = {
-            imports = [
-              ./hosts/bernoulli/home.nix
-              ./modules/home
-            ];
-          };
-        }
-      ];
+  } @ inputs: let
+    systems = ["x86_64-linux" "aarch64-darwin"];
+    forAllSystems = f: nixpkgs.lib.genAttrs systems (system: f system);
+  in {
+    nixosConfigurations = {
+      "bernoulli" = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs;};
+        modules = [
+          ./hosts/bernoulli/configuration.nix
+          ./hosts/bernoulli/hardware-configuration.nix
+          ./modules/nixos
+          inputs.nixos-hardware.nixosModules.asus-zephyrus-ga502
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.extraSpecialArgs = {
+              inherit inputs;
+            };
+            home-manager.users.ethan = {
+              imports = [
+                ./hosts/bernoulli/home.nix
+                ./modules/home
+              ];
+            };
+          }
+        ];
+      };
+
+      "morse" = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs;};
+        modules = [
+          ./hosts/morse/configuration.nix
+          ./hosts/morse/hardware-configuration.nix
+          ./modules/nixos
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.extraSpecialArgs = {
+              inherit inputs;
+            };
+            home-manager.users.ethan = {
+              imports = [
+                ./hosts/morse/home.nix
+                ./modules/home
+              ];
+            };
+          }
+        ];
+      };
+
+      "mohs" = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs;};
+        modules = [
+          ./hosts/mohs/configuration.nix
+          ./hosts/mohs/hardware-configuration.nix
+          ./modules/nixos
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.extraSpecialArgs = {
+              inherit inputs;
+            };
+            home-manager.users.mohs = {
+              imports = [
+                ./hosts/mohs/home.nix
+                ./modules/home
+              ];
+            };
+          }
+        ];
+      };
     };
 
-    # Digital Ocean Server
-    nixosConfigurations."morse" = nixpkgs.lib.nixosSystem {
-      specialArgs = {inherit inputs;};
-      modules = [
-        ./hosts/morse/configuration.nix
-        ./hosts/morse/hardware-configuration.nix
-        ./modules/nixos
-        home-manager.nixosModules.home-manager
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.extraSpecialArgs = {
-            inherit inputs;
-          };
-          home-manager.users.ethan = {
-            imports = [
-              ./hosts/morse/home.nix
-              ./modules/home
-            ];
-          };
-        }
-      ];
-    };
-
-    # Minecraft Server
-    nixosConfigurations."mohs" = nixpkgs.lib.nixosSystem {
-      specialArgs = {inherit inputs;};
-      modules = [
-        ./hosts/mohs/configuration.nix
-        ./hosts/mohs/hardware-configuration.nix
-        ./modules/nixos
-        home-manager.nixosModules.home-manager
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.extraSpecialArgs = {
-            inherit inputs;
-          };
-          home-manager.users.mohs = {
-            imports = [
-              ./hosts/mohs/home.nix
-              ./modules/home
-            ];
-          };
-        }
-      ];
-    };
-
-    # Macbook Air
     darwinConfigurations."newton" = nix-darwin.lib.darwinSystem {
       modules = [
         ./hosts/newton/configuration.nix
         ./modules/darwin
         home-manager.darwinModules.home-manager
         {
-          nixpkgs.overlays = [inputs.nixpkgs-firefox-darwin.overlay];
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.extraSpecialArgs = {
@@ -120,5 +122,25 @@
         }
       ];
     };
+
+    homeConfigurations = {
+      newton = home-manager.lib.homeManagerConfiguration {
+        pkgs = import nixpkgs {system = "aarch64-darwin";};
+        extraSpecialArgs = {inherit inputs;};
+        modules = [
+          ./hosts/newton/home.nix
+          ./modules/home
+        ];
+      };
+    };
+
+    devShells = forAllSystems (
+      system: let
+        pkgs = import nixpkgs {inherit system;};
+      in {
+        js = import ./shells/js.nix {inherit pkgs;};
+        python = import ./shells/python.nix {inherit pkgs;};
+      }
+    );
   };
 }
