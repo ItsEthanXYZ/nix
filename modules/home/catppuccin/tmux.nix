@@ -7,15 +7,7 @@
   config = lib.mkIf (config.catppuccin.enable && config.programs.tmux.enable) {
     programs.tmux.plugins = [
       {
-        plugin = pkgs.tmuxPlugins.catppuccin.overrideAttrs (oldAttrs: {
-          version = "v2.1.2";
-          src = pkgs.fetchFromGitHub {
-            owner = "catppuccin";
-            repo = "tmux";
-            rev = "v2.1.2";
-            sha256 = "sha256-vBYBvZrMGLpMU059a+Z4SEekWdQD0GrDqBQyqfkEHPg=";
-          };
-        });
+        plugin = pkgs.tmuxPlugins.catppuccin;
         extraConfig = ''
           set -g @catppuccin_flavor "${lib.strings.toLower config.catppuccin.flavor}"
           set -g @catppuccin_status_background "none"
