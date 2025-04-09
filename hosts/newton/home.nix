@@ -2,7 +2,6 @@
   catppuccin.enable = true;
 
   custom = {
-    enable = true;
     apps.enable = true;
     desktop.enable = true;
   };

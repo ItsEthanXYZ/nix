@@ -2,12 +2,17 @@
   config,
   lib,
   ...
-}: {
-  options = {
-    custom.syncthing.enable = lib.mkEnableOption "Enables syncthing";
+}:
+with lib; {
+  options.custom.network.syncthing = {
+    enable = mkOption {
+      default = true;
+      description = "Enables syncthing";
+      type = types.bool;
+    };
   };
 
-  config = lib.mkIf config.custom.syncthing.enable {
+  config = mkIf config.custom.network.syncthing.enable {
     services = {
       syncthing = {
         enable = true;
