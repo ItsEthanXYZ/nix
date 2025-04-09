@@ -41,19 +41,10 @@
     tldr
     neofetch
     kdePackages.okular
-    texliveFull
     unzip
     hyprshot
-    rustc
-    cargo
-    bun
-    brave
-    nodejs_23
     ripgrep
     fd
-    amberol
     prismlauncher
-    graalvmPackages.graalvm-ce
-    nextcloud-client
   ];
 }
