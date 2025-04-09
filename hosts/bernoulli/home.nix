@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   custom = {
-    enable = true;
+    apps.enable = true;
     desktop.enable = true;
     gaming = {
       enable = true;
