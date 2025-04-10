@@ -18,6 +18,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     raise.url = "github:knarkzel/raise";
+    quill.url = "github:EthanJ-Brady/quill";
     sourceweaver.url = "github:EthanJ-Brady/SourceWeaver";
   };
 
