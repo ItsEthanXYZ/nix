@@ -37,10 +37,8 @@
   programs.home-manager.enable = true;
 
   home.packages = with pkgs; [
-    vesktop
     tldr
     neofetch
-    kdePackages.okular
     unzip
     hyprshot
     ripgrep
