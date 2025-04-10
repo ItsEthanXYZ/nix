@@ -140,6 +140,7 @@
       in {
         js = import ./shells/js.nix {inherit pkgs;};
         python = import ./shells/python.nix {inherit pkgs;};
+        rust = import ./shells/rust.nix {inherit pkgs;};
       }
     );
   };
