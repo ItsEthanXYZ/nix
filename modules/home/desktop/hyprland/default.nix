@@ -46,9 +46,11 @@
           "$appLauncher, T, exec, raise -c \"com.mitchellh.ghostty\" -e \"ghostty\""
           "$appLauncher, S, exec, raise -c \"steam\" -e \"steam\""
 
+          # Find keys by running `wev`
           "SUPER, Q, killactive"
 
           "SUPER_SHIFT, C, exec, hyprpicker -a"
+          "SUPER_SHIFT, M, exec, pactl set-source-mute @DEFAULT_SOURCE@ toggle"
           "SUPER_SHIFT, P, exec, ~/.config/hypr/preformance.sh"
           "SUPER_SHIFT, mouse_up, exec, ~/.config/hypr/adjust_zoom.sh 0.8"
           "SUPER_SHIFT, mouse_down, exec, ~/.config/hypr/adjust_zoom.sh 1.25"

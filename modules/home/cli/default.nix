@@ -23,8 +23,14 @@ in {
   };
 
   config = mkIf config.custom.cli.enable {
-    home.packages = [
+    home.packages = with pkgs; [
       inputs.sourceweaver.packages.${pkgs.system}.default
+      unzip
+      zip
+      tldr
+      neofetch
+      ripgrep
+      fd
     ];
 
     programs = {

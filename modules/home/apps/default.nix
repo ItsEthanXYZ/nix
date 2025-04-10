@@ -1,8 +1,11 @@
 {
   config,
   lib,
+  pkgs,
   ...
-}: {
+}: let
+  isLinux = pkgs.stdenv.isLinux;
+in {
   imports = [
     ./ghostty.nix
   ];
@@ -13,5 +16,14 @@
 
   config = lib.mkIf config.custom.apps.enable {
     custom.apps.ghostty.enable = lib.mkDefault true;
+
+    home.packages = with pkgs;
+      [
+        vesktop
+        vivaldi
+      ]
+      ++ lib.optionals isLinux [
+        kdePackages.okular
+      ];
   };
 }

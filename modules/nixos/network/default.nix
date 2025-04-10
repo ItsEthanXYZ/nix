@@ -5,6 +5,7 @@
 }: {
   imports = [
     ./ssh.nix
+    ./syncthing.nix
     ./vpn.nix
   ];
 
