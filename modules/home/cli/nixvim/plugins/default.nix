@@ -10,6 +10,7 @@
   oil = import ./oil.nix;
   sleuth.enable = true;
   telescope = import ./telescope.nix;
+  tmux-navigator.enable = true;
   todo-comments.enable = true;
   treesitter = import ./treesitter.nix;
   which-key = import ./whichkey.nix;
