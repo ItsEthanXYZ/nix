@@ -27,7 +27,7 @@ in {
       inputs.sourceweaver.packages.${pkgs.system}.default
       unzip
       zip
-      tldr
+      tlrc
       neofetch
       ripgrep
       fd

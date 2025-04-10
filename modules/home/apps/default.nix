@@ -20,10 +20,10 @@ in {
     home.packages = with pkgs;
       [
         vesktop
-        vivaldi
       ]
       ++ lib.optionals isLinux [
         kdePackages.okular
+        vivaldi
       ];
   };
 }

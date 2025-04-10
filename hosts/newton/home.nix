@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{...}: {
   catppuccin.enable = true;
 
   custom = {
@@ -21,11 +21,4 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
-
-  home.packages = with pkgs; [
-    tlrc
-    glow
-    rustc
-    cargo
-  ];
 }
