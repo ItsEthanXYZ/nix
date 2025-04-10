@@ -37,12 +37,7 @@
   programs.home-manager.enable = true;
 
   home.packages = with pkgs; [
-    tldr
-    neofetch
-    unzip
     hyprshot
-    ripgrep
-    fd
     prismlauncher
   ];
 }
