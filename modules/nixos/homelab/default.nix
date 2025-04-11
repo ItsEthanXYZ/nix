@@ -7,6 +7,7 @@
     ./blocky
     ./nextcloud.nix
     ./tandoor.nix
+    ./teamspeak.nix
   ];
 
   options = {
@@ -17,5 +18,6 @@
     custom.homelab.blocky.enable = lib.mkDefault true;
     custom.homelab.nextcloud.enable = lib.mkDefault true;
     custom.homelab.tandoor.enable = lib.mkDefault true;
+    custom.homelab.teamspeak.enable = lib.mkDefault true;
   };
 }
