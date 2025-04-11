@@ -7,5 +7,6 @@ pkgs.mkShell {
     matplotlib
     numpy
     requests
+    virtualenv
   ];
 }
