@@ -1,8 +1,8 @@
-{pkgs, ...}: {
+{...}: {
   catppuccin.enable = true;
 
   custom = {
-    enable = true;
+    apps.enable = true;
     desktop.enable = true;
   };
 
@@ -16,15 +16,9 @@
   # changes in each release.
   home.stateVersion = "24.05";
 
+  home.username = "ethanbrady";
   home.homeDirectory = "/Users/ethanbrady";
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
-
-  home.packages = with pkgs; [
-    tlrc
-    glow
-    rustc
-    cargo
-  ];
 }

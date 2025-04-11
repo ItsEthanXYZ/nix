@@ -8,6 +8,7 @@
     };
     docker.enable = true;
     gaming.enable = true;
+    network.syncthing.enable = true;
     hardware = {
       audio.enable = true;
       bluetooth.enable = true;

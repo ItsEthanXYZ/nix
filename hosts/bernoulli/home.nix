@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   custom = {
-    enable = true;
+    apps.enable = true;
     desktop.enable = true;
     gaming = {
       enable = true;
@@ -37,22 +37,7 @@
   programs.home-manager.enable = true;
 
   home.packages = with pkgs; [
-    vesktop
-    tldr
-    neofetch
-    kdePackages.okular
-    texliveFull
-    unzip
     hyprshot
-    rustc
-    cargo
-    bun
-    brave
-    nodejs_23
-    ripgrep
-    fd
-    amberol
     prismlauncher
-    graalvmPackages.graalvm-ce
   ];
 }

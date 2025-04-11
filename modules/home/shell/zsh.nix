@@ -2,9 +2,14 @@
   config,
   lib,
   ...
-}: {
-  options = {
-    custom.shell.zsh.enable = lib.mkEnableOption "Enable zsh customizations";
+}:
+with lib; {
+  options.custom.shell.zsh = {
+    enable = mkOption {
+      default = true;
+      description = "Enables zsh and its customizations";
+      type = types.bool;
+    };
   };
 
   config = lib.mkIf config.custom.shell.zsh.enable {
@@ -15,9 +20,6 @@
         autosuggestion.enable = true;
         # This is only here to make the up arrow key only suggest commands that match the already typed in characters. If there is a better way to do this, I should probably change this.
         oh-my-zsh.enable = true;
-        shellAliases = {
-          "nvim-kickstart" = "NVIM_APPNAME=\"nvim-kickstart\" nvim";
-        };
         initExtra = ''
           # Enables vim mode for zsh
           bindkey -v
