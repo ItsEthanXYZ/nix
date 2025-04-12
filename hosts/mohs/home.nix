@@ -1,7 +1,4 @@
 {...}: {
-  custom = {
-    enable = true;
-  };
   catppuccin.enable = true;
 
   home.username = "mohs";
