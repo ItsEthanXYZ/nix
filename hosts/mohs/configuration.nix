@@ -6,6 +6,10 @@
     user.username = "mohs";
   };
 
+  fileSystems."/srv" = {
+    device = "/dev/sdb1";
+  };
+
   programs.zsh.enable = true;
 
   # Networking
