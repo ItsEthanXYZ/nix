@@ -3,26 +3,32 @@
     enable = true;
     bootloader.enable = true;
     homelab.enable = true;
-    user.username = "mohs";
+    user.enable = true;
   };
 
   fileSystems."/srv" = {
     device = "/dev/sdb1";
   };
 
-  programs.zsh.enable = true;
+  users.users."mohs" = {
+    isNormalUser = true;
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "minecraft"
+    ];
+    shell = pkgs.zsh;
+  };
 
   # Networking
   networking.hostName = "mohs";
-
-  users.users.mohs.extraGroups = ["minecraft"];
 
   # users.users.minecraft = {
   #   shell = "${pkgs.bash}/bin/bash";
   # };
 
   # Enable automatic login for the user
-  services.getty.autologinUser = "mohs";
+  services.getty.autologinUser = "ethan";
 
   # Packages
   environment.systemPackages = with pkgs; [
