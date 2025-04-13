@@ -14,30 +14,30 @@ with lib; {
       openFirewall = true;
       settings = {
         global = {
-          "workgroup" = "SAMBASHARE";
+          "workgroup" = "WORKGROUP";
           "server string" = "smbnix";
           "netbios name" = "smbnix";
           "security" = "user";
           "guest account" = "nobody";
           "map to guest" = "bad user";
         };
-        "public" = {
-          "path" = "/srv/public/";
-          "browseable" = "yes";
-          "writable" = "yes";
-          "guest ok" = "yes";
-          "create mask" = "0777";
-          "directory mask" = "2777";
-          "force user" = "nobody";
-          "force group" = "nogroup";
+        "shared" = {
+          "path" = "/srv/shared/";
+          "guest ok" = "no";
+          "guest only" = "no";
+          "create mask" = "0664";
+          "directory mask" = "0775";
+          "write list" = "@users";
+          "valid users" = "@users";
+          "read list" = "@users";
         };
       };
     };
 
-    users.users."nobody" = {
-      extraGroups = [
-        "nogroup"
-      ];
+    users.users = {
+      "mason" = {
+        isNormalUser = true;
+      };
     };
   };
 }
