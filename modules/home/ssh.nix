@@ -41,7 +41,7 @@ with lib; {
         mohs = mkDefault {
           host = "mohs";
           hostname = "mohs.tailnet.ethanbrady.xyz";
-          user = "mohs";
+          user = "ethan";
         };
       };
     };
