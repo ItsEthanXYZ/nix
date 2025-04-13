@@ -34,10 +34,14 @@ with lib; {
       };
     };
 
+    # Set password for the samba server with `sudo smbpasswd -a <username>`
     users.users = {
-      "mason" = {
-        isNormalUser = true;
-      };
+      "amanda".isNormalUser = true;
+      "erin".isNormalUser = true;
+      "jaxon".isNormalUser = true;
+      "mason".isNormalUser = true;
+      "mitchell".isNormalUser = true;
+      "payton".isNormalUser = true;
     };
   };
 }
