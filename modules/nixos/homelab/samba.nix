@@ -31,6 +31,16 @@ with lib; {
           "valid users" = "@users";
           "read list" = "@users";
         };
+        "personal" = {
+          "path" = "/srv/personal/";
+          "guest ok" = "no";
+          "guest only" = "no";
+          "create mask" = "0664";
+          "directory mask" = "0775";
+          "write list" = "ethan";
+          "valid users" = "ethan";
+          "read list" = "ethan";
+        };
       };
     };
 
