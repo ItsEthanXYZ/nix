@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }: {
   imports = [
@@ -16,5 +17,8 @@
   config = lib.mkIf config.custom.network.enable {
     custom.network.ssh.enable = lib.mkDefault true;
     custom.network.vpn.enable = lib.mkDefault true;
+    environment.systemPackages = with pkgs; [
+      cifs-utils
+    ];
   };
 }
