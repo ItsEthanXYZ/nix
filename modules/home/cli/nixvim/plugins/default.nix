@@ -14,4 +14,5 @@
   todo-comments.enable = true;
   treesitter = import ./treesitter.nix;
   which-key = import ./whichkey.nix;
+  zk.enable = true;
 }
