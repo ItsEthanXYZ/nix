@@ -30,4 +30,5 @@
   tabstop = 2; # Define the width of a tab character as 2 spaces
   timeoutlen = 400; # Set the time (in milliseconds) to wait for a mapped sequence to complete
   undofile = true; # Persist undo history between editing sessions
+  conceallevel = 2; # Don't show conceal characters
 }
