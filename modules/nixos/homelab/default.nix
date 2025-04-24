@@ -6,7 +6,9 @@
   imports = [
     ./blocky
     ./nextcloud.nix
+    ./samba.nix
     ./tandoor.nix
+    ./teamspeak.nix
   ];
 
   options = {
@@ -16,6 +18,8 @@
   config = lib.mkIf config.custom.homelab.enable {
     custom.homelab.blocky.enable = lib.mkDefault true;
     custom.homelab.nextcloud.enable = lib.mkDefault true;
+    custom.homelab.samba.enable = lib.mkDefault true;
     custom.homelab.tandoor.enable = lib.mkDefault true;
+    custom.homelab.teamspeak.enable = lib.mkDefault true;
   };
 }

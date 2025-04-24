@@ -183,4 +183,34 @@
     key = "<leader>-";
     mode = "n";
   }
+  {
+    action = "<Cmd>ZkNew { dir = vim.fn.expand('%:p:h'), title = vim.fn.input('Title: ') }<CR>";
+    options.desc = "Create a new note after asking for title";
+    key = "<leader>zn";
+    mode = "n";
+  }
+  {
+    action = ":'<,'>ZkNewFromTitleSelection { dir = vim.fn.expand('%:p:h') }<CR>";
+    options.desc = "Create a new note with selected text as the title";
+    key = "<leader>zn";
+    mode = "v";
+  }
+  {
+    action = ":'<,'>ZkNewFromContentSelection { dir = vim.fn.expand('%:p:h'), title = vim.fn.input('Title: ') }<CR>";
+    options.desc = "Create a new note with selected text as the content";
+    key = "<leader>zN";
+    mode = "v";
+  }
+  {
+    action = "<Cmd>ZkLinks<CR>";
+    options.desc = "Open inner links in a floating window";
+    key = "<leader>zi";
+    mode = "n";
+  }
+  {
+    action = "<Cmd>ZkBacklinks<CR>";
+    options.desc = "Open out links in a floating window";
+    key = "<leader>zo";
+    mode = "n";
+  }
 ]

@@ -38,6 +38,28 @@ with lib; {
           config = "lua require(\"supermaven-nvim\").setup({disable_keymaps = true,disable_inline_completion = true,});";
         }
       ];
+
+      extraConfigLua = ''
+        vim.api.nvim_create_autocmd("FileType", {
+          pattern = "markdown",
+          callback = function()
+            -- markdownWikiLink
+            vim.api.nvim_exec([[
+              syn region markdownWikiLink matchgroup=markdownLinkDelimiter start="\[\[" end="\]\]" contains=markdownUrl keepend oneline concealends
+            ]], false)
+
+            -- markdownLinkText
+            vim.api.nvim_exec([[
+              syn region markdownLinkText matchgroup=markdownLinkTextDelimiter start="!\=\[\%(\%(\_[^][]\|\[\_[^][]*\]\)*]\%( \=[[(]\)\)\@=" end="\]\%( \=[[(]\)\@=" nextgroup=markdownLink,markdownId skipwhite contains=@markdownInline,markdownLineStart concealends
+            ]], false)
+
+            -- markdownLink
+            vim.api.nvim_exec([[
+              syn region markdownLink matchgroup=markdownLinkDelimiter start="(" end=")" contains=markdownUrl keepend contained conceal
+            ]], false)
+          end,
+        })
+      '';
     };
 
     home.packages = with pkgs; [

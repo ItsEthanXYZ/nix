@@ -92,7 +92,7 @@
             home-manager.extraSpecialArgs = {
               inherit inputs;
             };
-            home-manager.users.mohs = {
+            home-manager.users.ethan = {
               imports = [
                 ./hosts/mohs/home.nix
                 ./modules/home
