@@ -19,10 +19,6 @@
     obs.enable = true;
   };
 
-  fileSystems."/run/media/ethan/Games" = {
-    device = "/dev/nvme0n1p6";
-  };
-
   networking.hostName = "bernoulli";
   nixpkgs.system = "x86_64-linux";
   system.stateVersion = "23.11";
