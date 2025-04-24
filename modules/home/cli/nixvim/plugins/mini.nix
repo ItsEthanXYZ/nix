@@ -7,7 +7,6 @@
     diff.enable = true;
     git.enable = true;
     icons.enable = true;
-    pairs.enable = true;
     snippets = {
       enable = true;
       snippets = {

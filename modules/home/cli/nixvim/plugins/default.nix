@@ -1,5 +1,4 @@
 {
-  avante = import ./avante.nix;
   conform-nvim = import ./conform.nix;
   cmp = import ./cmp.nix;
   indent-blankline.enable = true;
@@ -8,7 +7,6 @@
   mini = import ./mini.nix;
   noice.enable = true;
   oil = import ./oil.nix;
-  sleuth.enable = true;
   telescope = import ./telescope.nix;
   tmux-navigator.enable = true;
   todo-comments.enable = true;
