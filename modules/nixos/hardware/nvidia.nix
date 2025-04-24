@@ -34,10 +34,11 @@
       extraPackages = with pkgs; [nvidia-vaapi-driver];
     };
 
-    boot.kernelParams = [ "module_blacklist=i915" "module_blacklist=amdgpu" ];
+    # boot.kernelParams = [ "module_blacklist=i915" "module_blacklist=amdgpu" ];
 
     hardware.nvidia = {
       open = true;
+      modesetting.enable = true;
       prime = {
         sync.enable = true;
         reverseSync.enable = false;
