@@ -12,6 +12,8 @@
       plymouth = {
         enable = true;
       };
+      
+      kernelParams = [ "nomodeset" ];
 
       # Enable "Silent Boot"
       # consoleLogLevel = 0;

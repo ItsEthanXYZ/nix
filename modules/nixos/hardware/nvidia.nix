@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }: {
   options = {
@@ -28,20 +29,19 @@
   config = lib.mkIf config.custom.hardware.nvidia.enable {
     services.xserver.videoDrivers = ["nvidia"];
 
-    hardware.graphics.enable = true;
+    hardware.graphics = {
+      enable = true;
+      extraPackages = with pkgs; [nvidia-vaapi-driver];
+    };
+
+    boot.kernelParams = [ "module_blacklist=i915" "module_blacklist=amdgpu" ];
 
     hardware.nvidia = {
-      modesetting.enable = true;
       open = true;
-      package = config.boot.kernelPackages.nvidiaPackages.stable;
-      powerManagement.enable = true;
       prime = {
-        offload = {
-          enable = true;
-          enableOffloadCmd = true;
-        };
-        sync.enable = false;
+        sync.enable = true;
         reverseSync.enable = false;
+        offload.enable = false;
         intelBusId = lib.mkDefault config.custom.hardware.nvidia.intelBusId;
         amdgpuBusId = lib.mkDefault config.custom.hardware.nvidia.amdBusId;
         nvidiaBusId = lib.mkDefault config.custom.hardware.nvidia.nvidiaBusId;
