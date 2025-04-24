@@ -33,10 +33,13 @@
       nerd-fonts.fira-code
     ];
     networking.networkmanager.enable = lib.mkDefault true;
-    nix.settings.experimental-features = [
-      "flakes"
-      "nix-command"
-    ];
+    nix.settings = {
+      warn-dirty = false;
+      experimental-features = [
+        "flakes"
+        "nix-command"
+      ];
+    };
     nixpkgs.config.allowUnfree = lib.mkDefault true;
     security.sudo.wheelNeedsPassword = lib.mkDefault false;
   };
