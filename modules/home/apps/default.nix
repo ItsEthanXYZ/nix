@@ -16,12 +16,10 @@ in {
 
   config = lib.mkIf config.custom.apps.enable {
     custom.apps.ghostty.enable = lib.mkDefault true;
+    programs.vesktop.enable = lib.mkDefault true;
 
     home.packages = with pkgs;
-      [
-        vesktop
-      ]
-      ++ lib.optionals isLinux [
+      lib.optionals isLinux [
         kdePackages.okular
         vivaldi
       ];

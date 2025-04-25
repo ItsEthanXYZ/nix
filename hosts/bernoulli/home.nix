@@ -10,7 +10,7 @@
     };
   };
 
-  catppuccin.enable = true;
+  # catppuccin.enable = true;
 
   wayland.windowManager.hyprland.settings = {
     # Determine monitors with `hyprctl monitors all`

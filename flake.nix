@@ -20,6 +20,7 @@
     raise.url = "github:knarkzel/raise";
     quill.url = "github:EthanJ-Brady/quill";
     sourceweaver.url = "github:EthanJ-Brady/SourceWeaver";
+    stylix.url = "github:danth/stylix";
   };
 
   outputs = {
@@ -39,6 +40,7 @@
           ./hosts/bernoulli/hardware-configuration.nix
           ./modules/nixos
           inputs.nixos-hardware.nixosModules.asus-zephyrus-ga502
+          inputs.stylix.nixosModules.stylix
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
