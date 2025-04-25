@@ -21,7 +21,6 @@
         url = "https://raw.githubusercontent.com/catppuccin/waybar/ee8ed32b4f63e9c417249c109818dcc05a2e25da/themes/mocha.css";
         sha256 = "sha256-puMFl8zIKOiYhE6wzqnffXOHn/VnKmpVDzrMJMk+3Rc=";
       };
-      ".config/waybar/config".source = ./config;
       ".config/waybar/style.css".source = ./style.css;
     };
   };

@@ -11,6 +11,8 @@
   config = lib.mkIf config.custom.desktop.waybar.enable {
     programs.waybar.enable = true;
 
+    home.file.".config/waybar/config".source = ./config;
+
     home.packages = with pkgs; [
       pulsemixer
     ];

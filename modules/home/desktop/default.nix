@@ -10,7 +10,7 @@ in {
     ./banana-cursor.nix
     ./hyprland
     ./tofi.nix
-    ./waybar.nix
+    ./waybar
     ./wofi.nix
   ];
 
