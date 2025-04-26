@@ -28,6 +28,7 @@
     custom.user.enable = lib.mkDefault true;
     environment.systemPackages = with pkgs; [
       ghostty
+      gcc
     ];
     fonts.packages = with pkgs; [
       nerd-fonts.fira-code
