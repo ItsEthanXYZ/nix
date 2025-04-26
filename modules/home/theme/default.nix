@@ -4,7 +4,10 @@
   pkgs,
   ...
 }:
-with lib; {
+with lib; let
+  theme = "${pkgs.base16-schemes}/share/themes/onedark.yaml";
+  wallpaper = ../../../static/wallpapers/gray-spirals-2560x2560.png;
+in {
   options.custom.theme = {
     enable = mkOption {
       default = true;
@@ -16,7 +19,8 @@ with lib; {
   config = mkIf config.custom.theme.enable {
     stylix = {
       enable = true;
-      base16Scheme = "${pkgs.base16-schemes}/share/themes/onedark.yaml";
+      base16Scheme = theme;
+      image = wallpaper;
       polarity = "dark";
       cursor = {
         package = pkgs.banana-cursor;

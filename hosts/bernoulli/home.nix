@@ -21,14 +21,6 @@
     ];
   };
 
-  services.hyprpaper = {
-    enable = true;
-    settings = {
-      preload = "/home/ethan/Nix/static/wallpapers/spirals-2560x2560.png";
-      wallpaper = ", /home/ethan/Nix/static/wallpapers/spirals-2560x2560.png";
-    };
-  };
-
   home.username = "ethan";
   home.homeDirectory = "/home/ethan";
 
