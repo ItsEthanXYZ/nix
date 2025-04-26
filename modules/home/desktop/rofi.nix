@@ -3,7 +3,9 @@
   lib,
   ...
 }:
-with lib; {
+with lib; let
+  inherit (config.lib.formats.rasi) mkLiteral;
+in {
   options.custom.desktop.rofi = {
     enable = mkOption {
       default = false;
@@ -15,6 +17,50 @@ with lib; {
   config = mkIf config.custom.desktop.rofi.enable {
     programs.rofi = {
       enable = true;
+      theme = {
+        "*" = {
+          margin = mkLiteral "0";
+          padding = mkLiteral "0";
+          spacing = mkLiteral "0";
+        };
+        window = {
+          border-radius = mkLiteral "24px";
+        };
+        mainbox = {
+          padding = mkLiteral "12px";
+        };
+        inputbar = {
+          border = mkLiteral "2px";
+          border-radius = mkLiteral "16px";
+          padding = mkLiteral "8px 16px";
+          spacing = mkLiteral "8px";
+          children = mkLiteral "[ prompt, entry ]";
+        };
+        entry = {
+          placeholder = "";
+        };
+        message = {
+          margin = mkLiteral "12px 0 0";
+          border-radius = mkLiteral "16px";
+        };
+        textbox = {
+          padding = mkLiteral "8px 24px";
+        };
+        listview = {
+          margin = mkLiteral "12px 0 0";
+          lines = mkLiteral "8";
+          columns = mkLiteral "1";
+        };
+        element = {
+          padding = mkLiteral "8px 16px";
+          spacing = mkLiteral "8px";
+          border-radius = mkLiteral "16px";
+        };
+        element-icon = {
+          size = mkLiteral "1em";
+          vertical-align = mkLiteral "0.5";
+        };
+      };
     };
 
     home.file = {
