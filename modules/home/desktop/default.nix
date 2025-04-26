@@ -8,9 +8,8 @@
 in {
   imports = [
     ./hyprland
-    ./tofi.nix
+    ./rofi.nix
     ./waybar
-    ./wofi.nix
   ];
 
   options = {
@@ -20,6 +19,6 @@ in {
   config = lib.mkIf (config.custom.desktop.enable && isLinux) {
     custom.desktop.hyprland.enable = lib.mkDefault true;
     custom.desktop.waybar.enable = lib.mkDefault true;
-    custom.desktop.tofi.enable = lib.mkDefault true;
+    custom.desktop.rofi.enable = lib.mkDefault true;
   };
 }
