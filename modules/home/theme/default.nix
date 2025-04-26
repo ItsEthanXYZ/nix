@@ -16,7 +16,7 @@ with lib; {
   config = mkIf config.custom.theme.enable {
     stylix = {
       enable = true;
-      base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-frappe.yaml";
+      base16Scheme = "${pkgs.base16-schemes}/share/themes/onedark.yaml";
       polarity = "dark";
       cursor = {
         package = pkgs.banana-cursor;
@@ -37,7 +37,7 @@ with lib; {
         sizes = {
           applications = 16;
           desktop = 14;
-          popups = 14;
+          popups = 10;
           terminal = 16;
         };
         serif = {
