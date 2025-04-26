@@ -72,8 +72,9 @@ in {
 
     wayland.windowManager.hyprland.settings.bind = [
       "SUPER, space, exec, rofi -show drun"
-      "SUPER, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
-      "SUPER, E, exec, sort ~/.config/rofi/nerdfont.txt | awk '{printf \"%s  %s\\n\", $1, $4}' | rofi -dmenu | awk '{printf \"%s\", $1}' | wl-copy"
+      "SUPER, V, exec, cliphist list | rofi -dmenu -p \"Copy:\" | cliphist decode | wl-copy"
+      "SUPER, E, exec, sort ~/.config/rofi/nerdfont.txt | awk '{printf \"%s  %s\\n\", $1, $4}' | rofi -dmenu -p \"Copy:\" | awk '{printf \"%s\", $1}' | wl-copy"
+      "SUPER, N, exec, rofi -dmenu -p \"New Note Title:\" | xargs -I {} zk new -t \"{}\" -p | xargs ghostty -e nvim"
     ];
   };
 }
