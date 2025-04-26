@@ -8,5 +8,6 @@
     ./network
     ./shell
     ./ssh.nix
+    ./theme
   ];
 }
