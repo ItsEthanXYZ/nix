@@ -1,12 +1,20 @@
 {
   config,
+  inputs,
   lib,
   pkgs,
   ...
 }:
 with lib; let
   theme = "${pkgs.base16-schemes}/share/themes/onedark.yaml";
-  wallpaper = ../../../static/wallpapers/gray-spirals-2560x2560.png;
+  # wallpaper = ../../../static/wallpapers/gray-spirals-2560x2560.png;
+  wallpaper = pkgs.runCommand "wallpaper.png" {} ''
+    FG_COLOR=$(${pkgs.yq}/bin/yq -r .palette.base00 ${theme})
+    FG_COLOR=$(echo "$FG_COLOR" | ${pkgs.gnused}/bin/sed 's/^#//') # Remove the leading '#'
+    BG_COLOR=$(${pkgs.yq}/bin/yq -r .palette.base05 ${theme})
+    BG_COLOR=$(echo "$BG_COLOR" | ${pkgs.gnused}/bin/sed 's/^#//') # Remove the leading '#'
+    ${inputs.mandelbrust.packages.${pkgs.system}.default}/bin/mandelbrust -o $out -b $BG_COLOR -C $FG_COLOR -W 2560 -H 2560 -x=-0.7345 -y=0.181 -z 250
+  '';
 in {
   options.custom.theme = {
     enable = mkOption {
