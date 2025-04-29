@@ -46,6 +46,11 @@
           "$appLauncher, T, exec, raise -c \"com.mitchellh.ghostty\" -e \"ghostty\""
           "$appLauncher, S, exec, raise -c \"steam\" -e \"steam\""
 
+          # Volume up
+          ",code:123, exec, pactl set-sink-volume @DEFAULT_SINK@ +5%"
+          # Volume down
+          ",code:122, exec, pactl set-sink-volume @DEFAULT_SINK@ -5%"
+
           # Find keys by running `wev`
           "SUPER, Q, killactive"
 
@@ -130,6 +135,7 @@
       hyprsunset
       inputs.raise.defaultPackage.x86_64-linux
       bc # for adjust_zoom.sh
+      pulseaudio
     ];
   };
 }
