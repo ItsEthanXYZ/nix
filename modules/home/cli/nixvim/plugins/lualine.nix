@@ -14,23 +14,36 @@
           __unkeyed-1 = "mode";
           separator = {
             left = "";
+            right = "";
           };
         }
       ];
       lualine_b = [
-        "filename"
         "branch"
       ];
-      lualine_c = ["diagnostics"];
-      lualine_x = ["%="];
+      lualine_c = [
+        "filename"
+        {
+          __unkeyed-2 = "diagnostics";
+          color.bg = "#ff0000";
+        }
+      ];
+      lualine_x = [
+        {
+          __unkeyed-1 = "progress";
+          colored = false;
+        }
+      ];
       lualine_y = [
         "filetype"
-        "progress"
       ];
       lualine_z = [
         {
           __unkeyed-1 = "location";
-          separator = {right = "";};
+          separator = {
+            left = "";
+            right = "";
+          };
         }
       ];
     };
