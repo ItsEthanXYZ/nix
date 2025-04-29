@@ -15,6 +15,7 @@
     ./locale.nix
     ./network
     ./obs.nix
+    ./theme.nix
     ./user.nix
   ];
 
