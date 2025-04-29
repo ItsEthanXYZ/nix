@@ -50,9 +50,9 @@
           "pulseaudio#output" = {
             "scroll-step" = 5;
             "format" = "{icon} {volume}%";
-            "format-muted" = "";
+            "format-muted" = "󰖁";
             "format-icons" = {
-              "default" = ["" "" " "];
+              "default" = ["󰕿" "󰖀" "󰕾"];
             };
             "on-click" = "ghostty --title=pulsemixer -e pulsemixer";
           };
