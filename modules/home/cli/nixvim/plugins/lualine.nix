@@ -19,10 +19,10 @@
         }
       ];
       lualine_b = [
-        "branch"
+        "filename"
       ];
       lualine_c = [
-        "filename"
+        "branch"
         {
           __unkeyed-2 = "diagnostics";
           color.bg = "#ff0000";
