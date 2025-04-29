@@ -1,7 +1,6 @@
 {...}: {
   imports = [
     ./apps
-    ./catppuccin
     ./cli
     ./desktop
     ./gaming

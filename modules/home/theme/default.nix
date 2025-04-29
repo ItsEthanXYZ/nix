@@ -6,6 +6,7 @@
   ...
 }:
 with lib; let
+  isLinux = pkgs.stdenv.isLinux;
   theme = "${pkgs.base16-schemes}/share/themes/onedark.yaml";
   # wallpaper = ../../../static/wallpapers/gray-spirals-2560x2560.png;
   wallpaper = pkgs.runCommand "wallpaper.png" {} ''
@@ -30,7 +31,7 @@ in {
       base16Scheme = theme;
       image = wallpaper;
       polarity = "dark";
-      cursor = {
+      cursor = lib.mkIf isLinux {
         package = pkgs.banana-cursor;
         # Find the cursor name with...
         # nix build nixpkgs#<cursor-package>
@@ -39,7 +40,7 @@ in {
         name = "Banana";
         size = 24;
       };
-      iconTheme = {
+      iconTheme = lib.mkIf isLinux {
         enable = true;
         package = pkgs.papirus-icon-theme;
         dark = "Papirus-Dark";
