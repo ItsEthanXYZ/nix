@@ -1,6 +1,7 @@
 {
   conform-nvim = import ./conform.nix;
   cmp = import ./cmp.nix;
+  indent-blankline = import ./indent-blankline.nix;
   lazy.enable = true;
   lsp = import ./lsp.nix;
   lualine = import ./lualine.nix;

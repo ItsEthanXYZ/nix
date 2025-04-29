@@ -14,6 +14,5 @@
         }
       ];
     };
-    indent.enabled = true;
   };
 }
