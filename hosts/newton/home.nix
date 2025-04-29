@@ -1,6 +1,4 @@
 {...}: {
-  catppuccin.enable = true;
-
   custom = {
     apps.enable = true;
     desktop.enable = true;

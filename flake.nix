@@ -114,6 +114,7 @@
         ./hosts/newton/configuration.nix
         ./modules/darwin
         home-manager.darwinModules.home-manager
+        inputs.stylix.darwinModules.stylix
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
