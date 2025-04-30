@@ -19,21 +19,9 @@
           position = "top";
           reload_style_on_change = true;
 
-          modules-left = ["clock"];
+          modules-left = ["clock" "tray"];
           modules-center = ["hyprland/workspaces"];
           modules-right = ["pulseaudio#output" "pulseaudio#input"];
-
-          "hyprland/workspaces" = {
-            "format" = "{icon}";
-            "format-icons" = {
-              "active" = "";
-              "default" = "";
-              "empty" = "";
-            };
-            "persistent-workspaces" = {
-              "*" = [1 2 3 4];
-            };
-          };
 
           "clock" = {
             "timezone" = "America/Denver";
@@ -44,6 +32,23 @@
               "format" = {
                 "today" = "<span color='#fAfBfC'><b>{}</b></span>";
               };
+            };
+          };
+
+          "tray" = {
+            "icon-size" = 16;
+            "spacing" = 8;
+          };
+
+          "hyprland/workspaces" = {
+            "format" = "{icon}";
+            "format-icons" = {
+              "active" = "";
+              "default" = "";
+              "empty" = "";
+            };
+            "persistent-workspaces" = {
+              "*" = [1 2 3 4];
             };
           };
 
@@ -72,11 +77,10 @@
         }
 
         .modules-left {
-          padding: 8px;
-          margin: 10 0 5 10;
-          border-radius: 8px;
-          background: alpha(@base00, 0.6);
-          box-shadow: 0 0 2px rgba(0, 0, 0, 0.75);
+          padding: 0px;
+          margin: 0 0 0 0;
+          border-radius: 0;
+          background: transparent;
         }
 
         .modules-center {
@@ -95,8 +99,12 @@
           box-shadow: 0 0 2px rgba(0, 0, 0, 0.75);
         }
 
-        #clock {
-          padding: 0 4px;
+        #clock, #tray {
+          padding: 8px;
+          margin: 10 0 5 10;
+          border-radius: 8px;
+          background: alpha(@base00, 0.6);
+          box-shadow: 0 0 2px rgba(0, 0, 0, 0.75);
         }
 
         #workspaces {
