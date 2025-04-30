@@ -19,7 +19,7 @@
           position = "top";
           reload_style_on_change = true;
 
-          modules-left = ["clock" "tray"];
+          modules-left = ["clock" "tray" "gamemode"];
           modules-center = ["hyprland/workspaces"];
           modules-right = ["pulseaudio#output" "pulseaudio#input"];
 
@@ -38,6 +38,17 @@
           "tray" = {
             "icon-size" = 16;
             "spacing" = 8;
+          };
+
+          "gamemode" = {
+            "format" = "{glyph}";
+            "format-alt" = "{glyph}";
+            "glyph" = "󰊖";
+            "hide-not-running" = true;
+            "use-icon" = true;
+            "icon-size" = 20;
+            "tooltip" = true;
+            "tooltip-format" = "Games running: {count}";
           };
 
           "hyprland/workspaces" = {
@@ -99,12 +110,15 @@
           box-shadow: 0 0 2px rgba(0, 0, 0, 0.75);
         }
 
-        #clock, #tray {
+        #clock, #tray, #gamemode {
           padding: 8px;
           margin: 10 0 5 10;
           border-radius: 8px;
           background: alpha(@base00, 0.6);
           box-shadow: 0 0 2px rgba(0, 0, 0, 0.75);
+        }
+        #gamemode {
+          padding: 8px 5px 8px 8px;
         }
 
         #workspaces {
