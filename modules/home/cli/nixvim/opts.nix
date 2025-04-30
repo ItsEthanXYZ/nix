@@ -31,4 +31,5 @@
   timeoutlen = 400; # Set the time (in milliseconds) to wait for a mapped sequence to complete
   undofile = true; # Persist undo history between editing sessions
   conceallevel = 2; # Don't show conceal characters
+  winborder = "single"; # Use rounded borders for the floating windows
 }

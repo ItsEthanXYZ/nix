@@ -27,6 +27,11 @@ in {
 
   config = mkIf config.custom.theme.enable {
     stylix = {
+      targets = {
+        nixvim = {
+          plugin = "base16-nvim";
+        };
+      };
       enable = true;
       base16Scheme = theme;
       image = wallpaper;
