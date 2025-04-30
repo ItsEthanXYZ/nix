@@ -21,7 +21,7 @@
 
           modules-left = ["clock" "tray" "gamemode"];
           modules-center = ["hyprland/workspaces"];
-          modules-right = ["pulseaudio#output" "pulseaudio#input"];
+          modules-right = ["pulseaudio#output" "pulseaudio#input" "network" "bluetooth" "battery"];
 
           "clock" = {
             "timezone" = "America/Denver";
@@ -75,106 +75,155 @@
           "pulseaudio#input" = {
             "scroll-step" = 0;
             "format" = "{format_source}";
-            "format-source" = "󰍬";
+            "format-source" = "󰍬 {volume}%";
             "format-source-muted" = "󰍭";
             "on-click" = "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle";
+          };
+          "network" = {
+            "format-wifi" = "{icon} ";
+            "format-ethernet" = "󰈀 ";
+            "format-disconnected" = "󰲜 ";
+            "format-icons" = ["󰤟" "󰤢" "󰤥" "󰤨"];
+          };
+          "bluetooth" = {
+            "format" = "";
+            "format-disabled" = "󰂲";
+            "format-off" = "󰂲";
+            "format-connected" = "󰂱";
+            "on-click" = "blueman-manager";
+          };
+          "battery" = {
+            "states" = {
+              "warning" = 30;
+              "critical" = 15;
+            };
+            "format" = "{icon} {capacity}";
+            "format-charging" = "󱐋 {capacity}";
+            "format-plugged" = "󱐥";
+            "format-alt" = "{icon} {capacity}";
+            "format-icons" = ["󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
           };
         };
       };
 
-      style = ''
-        window#waybar {
-          background-color: transparent;
-        }
+      style =
+        /*
+        css
+        */
+        ''
+          /* Overall styling */
+          window#waybar {
+            background-color: transparent;
+          }
 
-        .modules-left {
-          padding: 0px;
-          margin: 0 0 0 0;
-          border-radius: 0;
-          background: transparent;
-        }
+          /* Left modules */
+          .modules-left {
+            padding: 0px;
+            margin: 0 0 0 0;
+            border-radius: 0;
+            background: transparent;
+          }
+          #clock, #tray, #gamemode {
+            padding: 8px;
+            margin: 10 0 5 10;
+            border-radius: 8px;
+            background: alpha(@base00, 0.75);
+            box-shadow: 0 0 2px rgba(0, 0, 0, 0.75);
+          }
+          #gamemode {
+            padding-right: 5px;
+          }
 
-        .modules-center {
-          padding: 8px;
-          margin: 10 0 5 10;
-          border-radius: 8px;
-          background: alpha(@base00, 0.6);
-          box-shadow: 0 0 2px rgba(0, 0, 0, 0.75);
-        }
+          /* Center modules */
+          .modules-center {
+            padding: 8px;
+            margin: 10 0 5 10;
+            border-radius: 8px;
+            background: alpha(@base00, 0.75);
+            box-shadow: 0 0 2px rgba(0, 0, 0, 0.75);
+          }
+          #workspaces {
+            padding: 0 4px;
+          }
+          #workspaces button {
+            all:unset;
+            padding: 0px 4px;
+            color: alpha(@base0D,.4);
+            transition: all .2s ease;
+          }
+          #workspaces button:hover {
+            color:rgba(0,0,0,0);
+            border: none;
+            text-shadow: 0px 0px 1.5px rgba(0, 0, 0, .5);
+            transition: all 1s ease;
+          }
+          #workspaces button.active {
+            color: @base0D;
+            border: none;
+            text-shadow: 0px 0px 2px rgba(0, 0, 0, .5);
+          }
+          #workspaces button.empty {
+            color: rgba(0,0,0,0);
+            border: none;
+            text-shadow: 0px 0px 1.5px rgba(0, 0, 0, .2);
+          }
+          #workspaces button.empty:hover {
+            color: rgba(0,0,0,0);
+            border: none;
+            text-shadow: 0px 0px 1.5px rgba(0, 0, 0, .5);
+            transition: all 1s ease;
+          }
+          #workspaces button.empty.active {
+            color: @base0D;
+            border: none;
+            text-shadow: 0px 0px 2px rgba(0, 0, 0, .5);
+          }
 
-        .modules-right {
-          padding: 8px;
-          margin: 10 10 5 0;
-          border-radius: 8px;
-          background: alpha(@base00, 0.6);
-          box-shadow: 0 0 2px rgba(0, 0, 0, 0.75);
-        }
-
-        #clock, #tray, #gamemode {
-          padding: 8px;
-          margin: 10 0 5 10;
-          border-radius: 8px;
-          background: alpha(@base00, 0.6);
-          box-shadow: 0 0 2px rgba(0, 0, 0, 0.75);
-        }
-        #gamemode {
-          padding: 8px 5px 8px 8px;
-        }
-
-        #workspaces {
-          padding: 0 4px;
-        }
-        #workspaces button {
-          all:unset;
-          padding: 0px 4px;
-          color: alpha(@base0D,.4);
-          transition: all .2s ease;
-        }
-        #workspaces button:hover {
-          color:rgba(0,0,0,0);
-          border: none;
-          text-shadow: 0px 0px 1.5px rgba(0, 0, 0, .5);
-          transition: all 1s ease;
-        }
-        #workspaces button.active {
-          color: @base0D;
-          border: none;
-          text-shadow: 0px 0px 2px rgba(0, 0, 0, .5);
-        }
-        #workspaces button.empty {
-          color: rgba(0,0,0,0);
-          border: none;
-          text-shadow: 0px 0px 1.5px rgba(0, 0, 0, .2);
-        }
-        #workspaces button.empty:hover {
-          color: rgba(0,0,0,0);
-          border: none;
-          text-shadow: 0px 0px 1.5px rgba(0, 0, 0, .5);
-          transition: all 1s ease;
-        }
-        #workspaces button.empty.active {
-          color: @base0D;
-          border: none;
-          text-shadow: 0px 0px 2px rgba(0, 0, 0, .5);
-        }
-
-        #pulseaudio {
-          color: @base0B;
-        }
-        #pulseaudio.input {
-          padding: 0 4px 0 0;
-        }
-        #pulseaudio.output {
-          padding: 0 8px 0 0;
-        }
-
-        #pulseaudio.output.sink-muted {
-          color: @base08;
-        }
-        #pulseaudio.input.source-muted {
-          color: @base08;
-        }
-      '';
+          /* Right modules */
+          .modules-right {
+            padding: 0px;
+            margin: 0 0 0 0;
+            border-radius: 0;
+            background: transparent;
+          }
+          #pulseaudio, #bluetooth, #battery, #network {
+            padding: 8px;
+            margin: 10 10 5 0;
+            border-radius: 8px;
+            background: alpha(@base00, 0.75);
+            box-shadow: 0 0 2px rgba(0, 0, 0, 0.75);
+          }
+          #pulseaudio.output.sink-muted {
+            color: @base08;
+          }
+          #pulseaudio.input.source-muted {
+            color: @base08;
+          }
+          #network.wifi {
+            padding-right: 5px;
+          }
+          #network.ethernet, #network.disconnected {
+            padding-right: 3px;
+          }
+          #network.disconnected {
+            color: @base08;
+          }
+          #bluetooth {
+            color: @base0D;
+          }
+          #bluetooth.disabled, #bluetooth.off {
+            color: @base08;
+          }
+          #battery.plugged, #battery.charging {
+            color: @base0B;
+          }
+          #battery.warning:not(.charging) {
+            color: @base0A;
+          }
+          #battery.critical:not(.charging) {
+            color: @base08;
+          }
+        '';
     };
 
     home.packages = with pkgs; [
