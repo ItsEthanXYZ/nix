@@ -36,13 +36,6 @@ with lib; {
       autoCmd = import ./autocmds.nix;
       keymaps = import ./keymaps.nix;
       plugins = import ./plugins;
-      # extraPlugins = [
-      #   {
-      #     plugin = pkgs.vimPlugins.supermaven-nvim;
-      #     config = "lua require(\"supermaven-nvim\").setup({disable_keymaps = true,disable_inline_completion = true,});";
-      #   }
-      # ];
-
       extraConfigLua = ''
         vim.api.nvim_create_autocmd("FileType", {
           pattern = "markdown",

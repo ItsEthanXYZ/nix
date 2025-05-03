@@ -8,6 +8,7 @@
   mini = import ./mini.nix;
   oil = import ./oil.nix;
   snacks = import ./snacks.nix;
+  supermaven = import ./supermaven.nix;
   telescope = import ./telescope.nix;
   tmux-navigator.enable = true;
   todo-comments.enable = true;
