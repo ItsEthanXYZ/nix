@@ -12,6 +12,7 @@ in {
     ./git.nix
     ./nixvim
     ./tmux.nix
+    ./zellij
     ./zk.nix
   ];
 
