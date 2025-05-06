@@ -26,9 +26,9 @@ keybinds clear-defaults=true {
     }
     tab {
         bind "left" { GoToPreviousTab; }
-        bind "down" { GoToNextTab; }
+        // bind "down" { GoToNextTab; }
         // bind "up" { GoToPreviousTab; }
-        // bind "right" { GoToNextTab; }
+        bind "right" { GoToNextTab; }
         bind "1" { GoToTab 1; SwitchToMode "locked"; }
         bind "2" { GoToTab 2; SwitchToMode "locked"; }
         bind "3" { GoToTab 3; SwitchToMode "locked"; }
