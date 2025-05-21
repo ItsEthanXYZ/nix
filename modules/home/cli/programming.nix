@@ -20,6 +20,8 @@ with lib; {
       prettierd
       nixd
       nil
+      rustc
+      cargo
     ];
   };
 }
