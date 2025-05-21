@@ -17,9 +17,6 @@ with lib; {
 
     programs.zellij = {
       enable = true;
-      enableZshIntegration = true;
-      attachExistingSession = true;
-      exitShellOnExit = true;
     };
   };
 }

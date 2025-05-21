@@ -13,6 +13,7 @@
       skhdConfig = ''
         # Launching applications
         alt + shift + ctrl - b : open -a vivaldi          #[B]rowser
+        alt + shift + ctrl - c : open -a zed              #[C]ode
         alt + shift + ctrl - d : open -a vesktop          #[D]iscord
         alt + shift + ctrl - f : open -a finder           #[F]iles
         alt + shift + ctrl - g : open -a ticktick         #[G]et things done
