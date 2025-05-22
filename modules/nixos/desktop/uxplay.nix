@@ -38,5 +38,11 @@ with lib; {
         (config.custom.desktop.uxplay.port + 2)
       ];
     };
+
+    programs.zsh = mkIf config.programs.zsh.enable {
+      shellAliases = {
+        uxplay = "uxplay -p ${toString config.custom.desktop.uxplay.port} -nh -n ${config.networking.hostName}";
+      };
+    };
   };
 }
