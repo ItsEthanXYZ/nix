@@ -16,6 +16,11 @@ with lib; {
       description = "The port to use for uxplay (will use port, ort+1, and port+2)";
       type = types.int;
     };
+    autoStart = mkOption {
+      default = true;
+      description = "Whether to start uxplay as a background service";
+      type = types.bool;
+    };
   };
 
   config = mkIf config.custom.desktop.uxplay.enable {
@@ -42,6 +47,18 @@ with lib; {
     programs.zsh = mkIf config.programs.zsh.enable {
       shellAliases = {
         uxplay = "uxplay -p ${toString config.custom.desktop.uxplay.port} -nh -n ${config.networking.hostName}";
+      };
+    };
+
+    systemd.user.services.uxplay = mkIf config.custom.desktop.uxplay.autoStart {
+      description = "Simple service that allows mirroring airplay to the desktop";
+      script = ''
+        ${pkgs.uxplay}/bin/uxplay -p ${toString config.custom.desktop.uxplay.port} -nh -n ${config.networking.hostName}
+      '';
+      wantedBy = ["default.target"];
+      serviceConfig = {
+        Restart = "on-failure";
+        RestartSec = 5;
       };
     };
   };
