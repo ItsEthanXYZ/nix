@@ -82,7 +82,7 @@
           "$mod_alt, j, movewindow, d"
           "$mod, f, fullscreen, 0"
           "$mod, space, togglespecialworkspace"
-          "$mod, g, togglespecialworkspace, game"
+          # "$mod, g, togglespecialworkspace, game"
           "$mod, m, togglespecialworkspace, mixer"
           "$mod, 1, workspace, 1"
           "$mod, 2, workspace, 2"

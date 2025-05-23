@@ -28,8 +28,41 @@ with lib; {
       userEmail = config.custom.cli.git.email;
       userName = config.custom.cli.git.name;
       extraConfig = {
-        advice.skippedCherryPicks = false;
-        push.autoSetupRemote = true;
+        advice = {
+          skippedCherryPicks = false;
+        };
+        core = {
+          compression = 9;
+          whitespace = "error";
+          preloadindex = true;
+        };
+        init = {
+          defaultBranch = "main";
+        };
+        log = {
+          abbrevCommit = true;
+        };
+        pull = {
+          default = "current";
+          rebase = true;
+        };
+        push = {
+          autoSetupRemote = true;
+          default = "current";
+          followTags = true;
+        };
+        rebase = {
+          autostash = true;
+          missingCommitsCheck = "warn";
+        };
+        status = {
+          branch = true;
+          showStash = true;
+          showUntrackedFiles = "all";
+        };
+        "url \"git@github.com:EthanJ-Brady/\"" = {
+          insteadOf = "me:";
+        };
       };
       delta = {
         enable = true;
@@ -39,12 +72,23 @@ with lib; {
         };
       };
       aliases = {
-        graph = "log --oneline --graph --decorate --all";
         s = "status -s";
-        l = "log --oneline";
+        l = "log --all --graph --pretty=format:'%C(magenta)%h %C(white) %an  %ar%C(auto)  %D%n%s%n'";
         d = "diff --name-status";
         last = "log -1 HEAD";
       };
+    };
+
+    programs.zsh.shellAliases = mkIf config.programs.zsh.enable {
+      gd = "git d";
+      ga = "git add";
+      gap = "git add -p";
+      gc = "git commit";
+      gp = "git push";
+      gu = "git pull";
+      gl = "git l";
+      gs = "git s";
+      gcl = "git clone";
     };
   };
 }

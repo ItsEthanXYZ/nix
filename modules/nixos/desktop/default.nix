@@ -6,6 +6,7 @@
   imports = [
     ./hyprland.nix
     ./sunshine.nix
+    ./uxplay.nix
     ./wayland.nix
   ];
 
@@ -15,6 +16,7 @@
 
   config = lib.mkIf config.custom.desktop.enable {
     custom.desktop.hyprland.enable = true;
+    custom.desktop.uxplay.enable = true;
     custom.desktop.wayland.enable = true;
   };
 }
