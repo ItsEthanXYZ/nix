@@ -4,7 +4,6 @@
   ...
 }: {
   imports = [
-    ./desktop
     ./network
     ./system.nix
     ./user.nix

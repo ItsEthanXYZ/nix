@@ -9,7 +9,7 @@
 
   config = lib.mkIf config.custom.desktop.yabai.enable {
     services.yabai = {
-      enable = true;
+      enable = false;
     };
   };
 }

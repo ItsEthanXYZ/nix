@@ -17,10 +17,10 @@
 
   config = lib.mkIf config.custom.desktop.enable {
     custom.desktop = {
-      jankyborders.enable = lib.mkDefault true;
-      sketchybar.enable = lib.mkDefault true;
-      skhd.enable = lib.mkDefault true;
-      yabai.enable = lib.mkDefault true;
+      jankyborders.enable = lib.mkDefault false;
+      sketchybar.enable = lib.mkDefault false;
+      skhd.enable = lib.mkDefault false;
+      yabai.enable = lib.mkDefault false;
     };
 
     fonts.packages = with pkgs; [

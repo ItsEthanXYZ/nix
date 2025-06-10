@@ -9,19 +9,19 @@
 
   config = lib.mkIf config.custom.desktop.skhd.enable {
     services.skhd = {
-      enable = true;
+      enable = false;
       skhdConfig = ''
         # Launching applications
-        alt + shift + ctrl - b : open -a vivaldi          #[B]rowser
-        alt + shift + ctrl - c : open -a zed              #[C]ode
-        alt + shift + ctrl - d : open -a vesktop          #[D]iscord
-        alt + shift + ctrl - f : open -a finder           #[F]iles
-        alt + shift + ctrl - g : open -a ticktick         #[G]et things done
-        alt + shift + ctrl - i : open -a messages         #[I]nstant Messages
-        alt + shift + ctrl - m : open -a mail             #[M]ail
-        alt + shift + ctrl - n : open -a obsidian         #[N]otes
-        alt + shift + ctrl - s : open -a stickies         #[S]tickies
-        alt + shift + ctrl - t : open -a ghostty          #[T]erminal
+        # alt + shift + ctrl - b : open -a vivaldi          #[B]rowser
+        # alt + shift + ctrl - c : open -a zed              #[C]ode
+        # alt + shift + ctrl - d : open -a vesktop          #[D]iscord
+        # alt + shift + ctrl - f : open -a finder           #[F]iles
+        # alt + shift + ctrl - g : open -a ticktick         #[G]et things done
+        # alt + shift + ctrl - i : open -a messages         #[I]nstant Messages
+        # alt + shift + ctrl - m : open -a mail             #[M]ail
+        # alt + shift + ctrl - n : open -a obsidian         #[N]otes
+        # alt + shift + ctrl - s : open -a stickies         #[S]tickies
+        # alt + shift + ctrl - t : open -a ghostty          #[T]erminal
 
         # Navigation
         alt - left : yabai -m window --focus west
@@ -39,13 +39,13 @@
         alt - f : yabai -m window --toggle zoom-fullscreen
 
         # Move window to space
-        shift + alt - 1 : yabai -m window --space 1;
-        shift + alt - 2 : yabai -m window --space 2;
-        shift + alt - 3 : yabai -m window --space 3;
-        shift + alt - 4 : yabai -m window --space 4;
-        shift + alt - 5 : yabai -m window --space 5;
-        shift + alt - 6 : yabai -m window --space 6;
-        shift + alt - 7 : yabai -m window --space 7;
+        # shift + alt - 1 : yabai -m window --space 1;
+        # shift + alt - 2 : yabai -m window --space 2;
+        # shift + alt - 3 : yabai -m window --space 3;
+        # shift + alt - 4 : yabai -m window --space 4;
+        # shift + alt - 5 : yabai -m window --space 5;
+        # shift + alt - 6 : yabai -m window --space 6;
+        # shift + alt - 7 : yabai -m window --space 7;
       '';
     };
   };

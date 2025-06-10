@@ -9,7 +9,7 @@
 
   config = lib.mkIf config.custom.desktop.jankyborders.enable {
     services.jankyborders = {
-      enable = true;
+      enable = false;
       active_color = "0xffbabbf1";
       inactive_color = "0xff737994";
       width = 8.0;
