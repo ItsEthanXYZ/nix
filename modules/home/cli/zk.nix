@@ -20,7 +20,7 @@ with lib; {
         note = {
           language = "en";
           default-title = "Untitled";
-          filename = "{{format-date now 'timestamp'}}-{{slug title}}";
+          filename = "{{id}}-{{slug title}}";
         };
       };
     };
