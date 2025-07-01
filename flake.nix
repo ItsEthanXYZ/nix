@@ -21,9 +21,6 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    raise.url = "github:knarkzel/raise";
-    quill.url = "github:EthanJ-Brady/quill";
-    sourceweaver.url = "github:EthanJ-Brady/SourceWeaver";
     stylix.url = "github:danth/stylix";
   };
 

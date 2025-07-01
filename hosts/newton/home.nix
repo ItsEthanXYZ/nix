@@ -1,6 +1,7 @@
 {...}: {
   custom = {
     apps.enable = true;
+    cli.enable = true;
     desktop.enable = true;
   };
 

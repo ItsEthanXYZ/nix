@@ -1,6 +1,5 @@
 {
   config,
-  inputs,
   lib,
   pkgs,
   ...
@@ -27,8 +26,6 @@ in {
 
   config = mkIf config.custom.cli.enable {
     home.packages = with pkgs; [
-      inputs.quill.packages.${pkgs.system}.default
-      inputs.sourceweaver.packages.${pkgs.system}.default
       unzip
       zip
       tlrc
