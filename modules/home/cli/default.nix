@@ -9,11 +9,8 @@ with lib; let
 in {
   imports = [
     ./git.nix
-    ./nixvim
     ./programming.nix
     ./tmux.nix
-    ./zellij
-    ./zk.nix
   ];
 
   options.custom.cli = {

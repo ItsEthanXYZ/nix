@@ -1,9 +1,9 @@
 {...}: {
-  custom = {
-    apps.enable = true;
-    cli.enable = true;
-    desktop.enable = true;
-  };
+  # custom = {
+  #   apps.enable = true;
+  #   cli.enable = true;
+  #   desktop.enable = true;
+  # };
 
   home.stateVersion = "24.05";
   home.username = "ethan";
