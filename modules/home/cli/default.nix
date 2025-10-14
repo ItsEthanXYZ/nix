@@ -10,7 +10,6 @@ in {
   imports = [
     ./git.nix
     ./programming.nix
-    ./tmux.nix
   ];
 
   options.custom.cli = {
