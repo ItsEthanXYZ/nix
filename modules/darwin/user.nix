@@ -7,7 +7,7 @@
     custom.user.enable = lib.mkEnableOption "Setups the user account for the system";
     custom.user.username = lib.mkOption {
       type = lib.types.str;
-      default = "ethanbrady";
+      default = "ethan";
       description = "The username for the user account";
     };
   };
