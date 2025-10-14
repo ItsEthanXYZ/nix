@@ -1,7 +1,6 @@
 {...}: {
   custom = {
     enable = true;
-    # desktop.enable = true;
   };
 
   system.stateVersion = 5;
