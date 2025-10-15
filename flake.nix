@@ -25,7 +25,6 @@
     darwinConfigurations."newton" = nix-darwin.lib.darwinSystem {
       modules = [
         ./hosts/newton/configuration.nix
-        ./modules/darwin
         home-manager.darwinModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
@@ -33,10 +32,9 @@
           home-manager.extraSpecialArgs = {
             inherit inputs;
           };
-          home-manager.users.ethanbrady = {
+          home-manager.users.ethan = {
             imports = [
               ./hosts/newton/home.nix
-              ./modules/home
             ];
           };
         }
