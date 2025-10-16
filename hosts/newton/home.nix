@@ -10,8 +10,6 @@
   programs.home-manager.enable = true;
 
   home.packages = with pkgs; [
-    nixd
-    nil
     rustc
     cargo
   ];
