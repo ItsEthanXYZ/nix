@@ -2,6 +2,7 @@
 {
   imports = [
     ./javascript.nix
+    ./nix.nix
   ];
 
   options = {
@@ -11,6 +12,7 @@
   config = lib.mkIf config.itsEthan.programming.enable {
     itsEthan.programming = {
       javascript.enable = true;
+      nix.enable = true;
     };
   };
 }

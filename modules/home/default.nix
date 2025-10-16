@@ -1,6 +1,8 @@
 { ... }:
 {
   imports = [
+    ./cli
     ./programming
+    ./shell
   ];
 }

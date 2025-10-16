@@ -1,7 +1,9 @@
 { lib, ... }:
 {
   itsEthan = {
+    cli.enable = true;
     programming.enable = true;
+    shell.enable = true;
   };
 
   home.stateVersion = "24.05";
