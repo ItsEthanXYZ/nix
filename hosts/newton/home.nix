@@ -2,6 +2,7 @@
 {
   itsEthan = {
     cli.enable = true;
+    network.enable = true;
     programming.enable = true;
     shell.enable = true;
   };
