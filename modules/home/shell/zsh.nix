@@ -14,9 +14,11 @@
         enable = true;
         syntaxHighlighting.enable = true;
         autosuggestion.enable = true;
-        # This is only here to enable history substring search
         oh-my-zsh = {
           enable = true;
+          plugins = [
+            "vi-mode"
+          ];
         };
         initContent = ''
           # Autosuggestion completion
