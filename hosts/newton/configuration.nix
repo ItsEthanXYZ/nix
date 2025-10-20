@@ -1,8 +1,8 @@
 { ... }:
 {
   itsEthan = {
+    enable = true;
     network = {
-      enable = true;
       name = "newton";
     };
   };
@@ -12,5 +12,7 @@
     watchIdAuth = true;
   };
 
-  system.stateVersion = 6;
+  system.stateVersion = 5;
+  nixpkgs.hostPlatform = "aarch64-darwin";
+  system.primaryUser = "ethan";
 }

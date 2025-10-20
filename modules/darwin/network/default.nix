@@ -4,6 +4,8 @@
   ...
 }:
 {
+  # TODO: Add tailscale module
+
   options = {
     itsEthan.network.enable = lib.mkEnableOption "Enables all custom network modules and config";
     itsEthan.network.name = lib.mkOption {
@@ -17,7 +19,7 @@
     networking = {
       computerName = config.itsEthan.network.name;
       hostName = config.itsEthan.network.name;
-      localHostNames = config.itsEthan.network.name;
+      localHostName = config.itsEthan.network.name;
     };
   };
 }
