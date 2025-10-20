@@ -1,11 +1,16 @@
 { ... }:
 {
-  # custom = {
-  #   enable = true;
-  # };
+  itsEthan = {
+    network = {
+      enable = true;
+      name = "newton";
+    };
+  };
 
-  system.stateVersion = 5;
-  nixpkgs.hostPlatform = "aarch64-darwin";
-  networking.hostName = "newton";
-  nix.settings.experimental-features = "nix-command flakes";
+  security.pam.services.sudo_local = {
+    touchIdAuth = true;
+    watchIdAuth = true;
+  };
+
+  system.stateVersion = 6;
 }

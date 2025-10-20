@@ -31,6 +31,7 @@
       darwinConfigurations."newton" = nix-darwin.lib.darwinSystem {
         modules = [
           ./hosts/newton/configuration.nix
+          ./modules/darwin
           home-manager.darwinModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
