@@ -8,7 +8,7 @@
   ];
 
   options = {
-    itsEthan.enable = lib.mkEnableOption "Enables all home manager custom modules";
+    itsEthan.enable = lib.mkEnableOption "Enables all custom home manager modules";
   };
 
   config = lib.mkIf config.itsEthan.enable {

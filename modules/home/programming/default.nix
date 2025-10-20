@@ -6,7 +6,7 @@
   ];
 
   options = {
-    itsEthan.programming.enable = lib.mkEnableOption "Enables all programming tools";
+    itsEthan.programming.enable = lib.mkEnableOption "Enables all custom programming modules and config";
   };
 
   config = lib.mkIf config.itsEthan.programming.enable {

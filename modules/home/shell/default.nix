@@ -10,7 +10,7 @@
   ];
 
   options = {
-    itsEthan.shell.enable = lib.mkEnableOption "Enables all shell configuration";
+    itsEthan.shell.enable = lib.mkEnableOption "Enables all custom shell modules and config";
   };
 
   config = lib.mkIf config.itsEthan.shell.enable {

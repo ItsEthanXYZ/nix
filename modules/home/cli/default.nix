@@ -10,7 +10,7 @@
   ];
 
   options = {
-    itsEthan.cli.enable = lib.mkEnableOption "Enables all cli utilities";
+    itsEthan.cli.enable = lib.mkEnableOption "Enables all custom cli modules and config";
   };
 
   config = lib.mkIf config.itsEthan.cli.enable {

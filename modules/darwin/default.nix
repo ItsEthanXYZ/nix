@@ -5,7 +5,7 @@
   ];
 
   options = {
-    itsEthan.enable = lib.mkEnableOption "Enables all darwin custom modules";
+    itsEthan.enable = lib.mkEnableOption "Enables all custom darwin modules and config";
   };
 
   config = lib.mkIf config.itsEthan.enable {

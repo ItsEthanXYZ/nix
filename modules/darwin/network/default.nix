@@ -5,7 +5,7 @@
 }:
 {
   options = {
-    itsEthan.network.enable = lib.mkEnableOption "Enables network configuration";
+    itsEthan.network.enable = lib.mkEnableOption "Enables all custom network modules and config";
     itsEthan.network.name = lib.mkOption {
       type = lib.types.str;
       default = null;

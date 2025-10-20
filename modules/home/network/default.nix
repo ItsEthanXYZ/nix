@@ -9,7 +9,7 @@
   ];
 
   options = {
-    itsEthan.network.enable = lib.mkEnableOption "Enables all network configuration";
+    itsEthan.network.enable = lib.mkEnableOption "Enables all custom network modules and config";
   };
 
   config = lib.mkIf config.itsEthan.network.enable {
