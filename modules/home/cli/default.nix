@@ -5,7 +5,7 @@
 }:
 {
   imports = [
-    ./builtin.nix
+    ./common.nix
     ./git.nix
   ];
 
@@ -15,7 +15,7 @@
 
   config = lib.mkIf config.itsEthan.cli.enable {
     itsEthan.cli = {
-      builtin.enable = true;
+      common.enable = true;
       git.enable = true;
     };
   };
