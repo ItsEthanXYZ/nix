@@ -3,6 +3,7 @@
   imports = [
     ./javascript.nix
     ./nix.nix
+    ./tex.nix
   ];
 
   options = {
@@ -13,6 +14,7 @@
     itsEthan.programming = {
       javascript.enable = true;
       nix.enable = true;
+      tex.enable = true;
     };
   };
 }
