@@ -1,7 +1,7 @@
 { config, lib, ... }:
 {
-  # TODO: Add aerospace module
   imports = [
+    ./aerospace.nix
   ];
 
   options = {
@@ -9,6 +9,8 @@
   };
 
   config = lib.mkIf config.itsEthan.desktop.enable {
+    itsEthan.desktop.aerospace.enable = true;
+
     system.defaults = {
       ".GlobalPreferences"."com.apple.mouse.scaling" = -1.0;
       NSGlobalDomain = {
