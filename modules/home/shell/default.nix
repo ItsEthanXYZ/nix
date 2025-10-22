@@ -5,6 +5,7 @@
 }:
 {
   imports = [
+    ./ghostty.nix
     ./oh-my-posh
     ./zsh.nix
   ];
@@ -14,6 +15,7 @@
   };
 
   config = lib.mkIf config.itsEthan.shell.enable {
+    itsEthan.shell.ghostty.enable = true;
     itsEthan.shell.oh-my-posh.enable = true;
     itsEthan.shell.zsh.enable = true;
   };
