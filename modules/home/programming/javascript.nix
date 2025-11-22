@@ -12,7 +12,7 @@
   config = lib.mkIf config.itsEthan.programming.javascript.enable {
     home.packages = with pkgs; [
       nodejs_24
-      pnpm_9
+      pnpm
       bun
       biome
     ];
