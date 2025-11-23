@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }:
 {
@@ -14,6 +15,10 @@
   };
 
   config = lib.mkIf config.itsEthan.cli.enable {
+    home.packages = with pkgs; [
+      neovim
+    ];
+
     itsEthan.cli = {
       common.enable = true;
       git.enable = true;
