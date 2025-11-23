@@ -8,6 +8,7 @@
     ./carapace.nix
     ./ghostty.nix
     ./oh-my-posh
+    ./tmux.nix
     ./zsh.nix
   ];
 
@@ -19,6 +20,7 @@
     itsEthan.shell.carapace.enable = true;
     itsEthan.shell.ghostty.enable = true;
     itsEthan.shell.oh-my-posh.enable = true;
+    itsEthan.shell.tmux.enable = true;
     itsEthan.shell.zsh.enable = true;
   };
 
