@@ -22,6 +22,7 @@ in
       settings = {
         font-family = "JetBrainsMono NFM Regular";
         font-size = 16;
+        theme = "Catppuccin Frappe";
         window-padding-x = 8;
         window-padding-y = 2;
       };
